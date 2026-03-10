@@ -1,0 +1,4 @@
+employeeId,name,department,roleTitle,roleLevel,fiscalYear,salary,bonus,frontline,endowedPosition,yearsExperience,retainedNextYear
+1001,Alice Chen,Curatorial,Curator,IC3,2024,138000,8000,false,true,12,true
+1002,Marcus Hill,Visitor Services,Visitor Associate,IC1,2024,47000,0,true,false,3,false
+1003,Sara Gomez,Development,Development Manager,MANAGER,2024,98000,6000,false,false,8,true
