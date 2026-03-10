@@ -1,70 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<title>Museum Compensation Dashboard</title>
-
-<link rel="stylesheet" href="dashboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project3 — Museum Compensation Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
+    <div class="page">
+        <header class="page-header">
+            <div>
+                <h1>Project3 — Museum Compensation Analysis</h1>
+                <p class="subtitle">
+                    Executive dashboard for a large Manhattan museum compensation review
+                </p>
+                <p class="meta">
+                    Dataset: 850 employees per year | FY2022–FY2024 | Synthetic workforce model
+                </p>
+            </div>
+        </header>
 
-<h1>Museum Compensation Analysis Dashboard</h1>
+        <section class="kpi-container">
+            <div class="kpi-card">
+                <h2>Retention Rate</h2>
+                <p id="retentionRate">--</p>
+                <span class="kpi-footnote">12-month retention</span>
+            </div>
 
-<div class="kpi-container">
+            <div class="kpi-card">
+                <h2>% Below Living Wage</h2>
+                <p id="livingWagePercent">--</p>
+                <span class="kpi-footnote">NYC benchmark</span>
+            </div>
 
-<div class="kpi-card">
-<h2>Retention Rate</h2>
-<p id="retentionRate">--</p>
-</div>
+            <div class="kpi-card">
+                <h2>Living Wage Adjustment Cost</h2>
+                <p id="livingWageCost">--</p>
+                <span class="kpi-footnote">Estimated annual cost</span>
+            </div>
+        </section>
 
-<div class="kpi-card">
-<h2>% Below Living Wage</h2>
-<p id="livingWagePercent">--</p>
-</div>
+        <section class="chart-row">
+            <div class="chart-card">
+                <h3>Median Salary by Department</h3>
+                <canvas id="deptChart"></canvas>
+            </div>
 
-<div class="kpi-card">
-<h2>Living Wage Adjustment Cost</h2>
-<p id="livingWageCost">--</p>
-</div>
+            <div class="chart-card">
+                <h3>Salary by Role Level</h3>
+                <canvas id="levelChart"></canvas>
+            </div>
+        </section>
 
-</div>
+        <section class="chart-row">
+            <div class="chart-card">
+                <h3>Frontline vs Non-Frontline Pay</h3>
+                <canvas id="frontlineChart"></canvas>
+            </div>
 
+            <div class="chart-card">
+                <h3>Market Benchmark Variance</h3>
+                <canvas id="benchmarkChart"></canvas>
+            </div>
+        </section>
+    </div>
 
-<div class="chart-row">
-
-<div class="chart-card">
-<h3>Median Salary by Department</h3>
-<canvas id="deptChart"></canvas>
-</div>
-
-<div class="chart-card">
-<h3>Salary by Role Level</h3>
-<canvas id="levelChart"></canvas>
-</div>
-
-</div>
-
-
-<div class="chart-row">
-
-<div class="chart-card">
-<h3>Frontline vs Non-Frontline Pay</h3>
-<canvas id="frontlineChart"></canvas>
-</div>
-
-<div class="chart-card">
-<h3>Market Benchmark Variance</h3>
-<canvas id="benchmarkChart"></canvas>
-</div>
-
-</div>
-
-
-<script src="dashboard.js"></script>
-
+    <script src="dashboard.js"></script>
 </body>
 </html>
