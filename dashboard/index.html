@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Museum Compensation Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<h1>Museum Compensation Analysis Dashboard</h1>
+
+<div class="kpi-container">
+
+<div class="kpi-card">
+<h2>Retention Rate</h2>
+<p id="retentionRate">--</p>
+</div>
+
+<div class="kpi-card">
+<h2>% Below Living Wage</h2>
+<p id="livingWagePercent">--</p>
+</div>
+
+<div class="kpi-card">
+<h2>Living Wage Adjustment Cost</h2>
+<p id="livingWageCost">--</p>
+</div>
+
+</div>
+
+
+<div class="chart-row">
+
+<div class="chart-card">
+<h3>Median Salary by Department</h3>
+<canvas id="deptChart"></canvas>
+</div>
+
+<div class="chart-card">
+<h3>Salary by Role Level</h3>
+<canvas id="levelChart"></canvas>
+</div>
+
+</div>
+
+
+<div class="chart-row">
+
+<div class="chart-card">
+<h3>Frontline vs Non-Frontline Pay</h3>
+<canvas id="frontlineChart"></canvas>
+</div>
+
+<div class="chart-card">
+<h3>Market Benchmark Variance</h3>
+<canvas id="benchmarkChart"></canvas>
+</div>
+
+</div>
+
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
