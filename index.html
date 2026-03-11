@@ -2,176 +2,107 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Project3 — Museum Compensation Dashboard</title>
-
-<link rel="stylesheet" href="dashboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project3 — Museum Compensation Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-
-<div class="page">
-
-<header class="page-header">
-
-<h1>Museum Compensation Analysis Dashboard</h1>
-
-<p class="subtitle">
-Simulated compensation review for a $250M Manhattan museum
-</p>
-
-<p class="meta">
-Dataset: 850 employees per year | FY2022–FY2024 | Synthetic workforce model
-</p>
-
-</header>
-
-
-<!-- KPI CARDS -->
-
-<section class="kpi-container">
-
-<div class="kpi-card">
-
-<h2>Retention Rate</h2>
-
-<p id="retentionRate">--</p>
-
-<span class="kpi-footnote">
-
-KPI: % employees retained year-to-year  
-Method: retainedNextYear field in workforce dataset
-
-</span>
-
-</div>
-
-
-<div class="kpi-card">
-
-<h2>% Below Living Wage</h2>
-
-<p id="livingWagePercent">--</p>
-
-<span class="kpi-footnote">
-
-Benchmark: NYC living wage estimate  
-Method: salary compared against annual living wage threshold
-
-</span>
-
-</div>
-
-
-<div class="kpi-card">
-
-<h2>Living Wage Adjustment Cost</h2>
-
-<p id="livingWageCost">--</p>
-
-<span class="kpi-footnote">
-
-Estimate of payroll increase required to bring employees
-below the living wage threshold to the benchmark level
-
-</span>
-
-</div>
-
-</section>
-
-
-<!-- CHART ROW 1 -->
-
-<section class="chart-row">
-
-<div class="chart-card">
-
-<h3>Median Salary by Department</h3>
-
-<canvas id="deptChart"></canvas>
-
-<p class="chart-note">
-
-KPI: median compensation across operational departments.  
-Method: salaries grouped by department and median calculated.
-
-</p>
-
-</div>
-
-
-<div class="chart-card">
-
-<h3>Salary by Job Ladder Level</h3>
-
-<canvas id="levelChart"></canvas>
-
-<p class="chart-note">
-
-Job architecture modeled using a generic global role framework.
-Shows compensation distribution across contributor, management,
-and executive levels.
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- CHART ROW 2 -->
-
-<section class="chart-row">
-
-<div class="chart-card">
-
-<h3>Frontline vs Non-Frontline Pay</h3>
-
-<canvas id="frontlineChart"></canvas>
-
-<p class="chart-note">
-
-Frontline roles include visitor services, retail, and security.
-Comparison highlights operational workforce compensation relative
-to administrative and leadership staff.
-
-</p>
-
-</div>
-
-
-<div class="chart-card">
-
-<h3>Market Benchmark Variance</h3>
-
-<canvas id="benchmarkChart"></canvas>
-
-<p class="chart-note">
-
-Variance calculated relative to generic compensation survey medians.
-Variance range classification:
-
-- within market (±10%)
-- above market
-- below market
-
-</p>
-
-</div>
-
-</section>
-
-</div>
-
-<script src="dashboard.js"></script>
-
+  <div class="page">
+
+    <header class="page-header">
+      <h1>Museum Compensation Analysis Dashboard</h1>
+      <p class="subtitle">
+        Simulated compensation review for a $250M Manhattan museum
+      </p>
+      <p class="meta">
+        Dataset: 850 employees per year | FY2022–FY2024 | Synthetic workforce model
+      </p>
+    </header>
+
+    <section class="kpi-container">
+      <div class="kpi-card">
+        <h2>Retention Rate</h2>
+        <p id="retentionRate">--</p>
+        <span class="kpi-footnote">
+          KPI: % employees retained year-to-year<br>
+          Method: retainedNextYear flag in workforce dataset
+        </span>
+      </div>
+
+      <div class="kpi-card">
+        <h2>% Below Living Wage</h2>
+        <p id="livingWagePercent">--</p>
+        <span class="kpi-footnote">
+          Benchmark: NYC living wage estimate<br>
+          Method: annualized salary compared to living wage threshold
+        </span>
+      </div>
+
+      <div class="kpi-card">
+        <h2>Living Wage Adjustment Cost</h2>
+        <p id="livingWageCost">--</p>
+        <span class="kpi-footnote">
+          Estimated payroll adjustment required to bring employees
+          below threshold to target wage level
+        </span>
+      </div>
+    </section>
+
+    <section class="chart-row">
+      <div class="chart-card">
+        <h3>Median Salary by Department and Job Family Step</h3>
+        <canvas id="deptChart"></canvas>
+        <p class="chart-note">
+          KPI: median salary grouped by department and role architecture step
+          (for example Curatorial–IC3, Retail–IC2, Development–Manager).<br><br>
+          Method: employee salaries are grouped first by department, then by
+          job family step, and median pay is calculated for each segment.<br><br>
+          Deviation: each segment may be compared to a market benchmark median
+          or internal pay-band midpoint to show whether pay is above, within,
+          or below reference range.
+        </p>
+      </div>
+
+      <div class="chart-card">
+        <h3>Salary by Job Ladder Level</h3>
+        <canvas id="levelChart"></canvas>
+        <p class="chart-note">
+          Job architecture modeled using a generic global role framework.
+          Shows compensation distribution across contributor, management,
+          director, and executive levels.
+        </p>
+      </div>
+    </section>
+
+    <section class="chart-row">
+      <div class="chart-card">
+        <h3>Frontline vs Non-Frontline Pay</h3>
+        <canvas id="frontlineChart"></canvas>
+        <p class="chart-note">
+          Frontline roles include visitor services, retail, and security.
+          Comparison highlights operational workforce compensation relative
+          to administrative and leadership staff.
+        </p>
+      </div>
+
+      <div class="chart-card">
+        <h3>Market Benchmark Variance</h3>
+        <canvas id="benchmarkChart"></canvas>
+        <p class="chart-note">
+          Variance calculated relative to generic compensation survey medians.<br><br>
+          Classification:
+          within market (±10%),
+          above market,
+          below market.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="dashboard.js"></script>
 </body>
-
 </html>
